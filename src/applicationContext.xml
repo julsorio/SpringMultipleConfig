@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+	https://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:component-scan base-package="com.accenture.servicios" />
+
+	<bean id="evento1" class="com.accenture.entidades.Evento">
+		<property name="eventoId" value="1" />
+		<property name="nombre" value="Concierto Metallica" />
+		<property name="descripcion" value="World Tour 2024" />
+		<property name="lugar" value="Madrid" />
+		<property name="duracion" value="3 horas" />
+		<property name="tipoEvento" value="Musica" />
+		<property name="asientosDisp" value="67" />
+	</bean>
+	<bean id="evento2" class="com.accenture.entidades.Evento">
+		<property name="eventoId" value="2" />
+		<property name="nombre" value="Concierto ACDC" />
+		<property name="descripcion" value="Hellfest 2024" />
+		<property name="lugar" value="Francia" />
+		<property name="duracion" value="3 horas" />
+		<property name="tipoEvento" value="Musica" />
+		<property name="asientosDisp" value="130" />
+	</bean>
+	<bean id="evento3" class="com.accenture.entidades.Evento">
+		<property name="eventoId" value="3" />
+		<property name="nombre" value="Concierto Iron Maiden" />
+		<property name="descripcion" value="World Tour 2024" />
+		<property name="lugar" value="Australia" />
+		<property name="duracion" value="2 horas" />
+		<property name="tipoEvento" value="Musica" />
+		<property name="asientosDisp" value="310" />
+	</bean>
+	
+	<!-- <bean id="gestionEventos" class="com.accenture.servicios.GestionEventos">
+		<property name="listaEventos">
+			<list>
+				<ref bean="evento1"/>
+				<ref bean="evento2"/>
+				<ref bean="evento2"/>
+			</list>
+		</property>
+	</bean>  -->
+
+	<bean id="listaEventos" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="evento1" />      
+                <ref bean="evento2" />
+                <ref bean="evento3" />
+            </list>
+        </constructor-arg>
+	</bean>
+	
+</beans>
